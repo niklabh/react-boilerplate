@@ -46,7 +46,9 @@
     "test:firefox": "npm run test -- --browsers Firefox",
     "test:safari": "npm run test -- --browsers Safari",
     "test:ie": "npm run test -- --browsers IE",
-    "coveralls": "cat ./coverage/lcov/lcov.info | coveralls"
+    "coveralls": "cat ./coverage/lcov/lcov.info | coveralls",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "lint-staged": {
     "lint:eslint": "*.js",
@@ -61,7 +63,9 @@
     ],
     "env": {
       "production": {
-        "only": ["app"],
+        "only": [
+          "app"
+        ],
         "plugins": [
           "transform-react-remove-prop-types",
           "transform-react-constant-elements",
@@ -92,14 +96,26 @@
     },
     "rules": {
       "import/no-unresolved": 2,
-      "comma-dangle": [2, "always-multiline"],
-      "indent": [2, 2, { "SwitchCase": 1 }],
+      "comma-dangle": [
+        2,
+        "always-multiline"
+      ],
+      "indent": [
+        2,
+        2,
+        {
+          "SwitchCase": 1
+        }
+      ],
       "no-console": 1,
       "max-len": 0,
       "prefer-template": 2,
       "no-use-before-define": 0,
       "newline-per-chained-call": 0,
-      "arrow-body-style": [2, "as-needed"],
+      "arrow-body-style": [
+        2,
+        "as-needed"
+      ],
       "jsx-a11y/href-no-hash": 2,
       "jsx-a11y/label-has-for": 2,
       "jsx-a11y/mouse-events-have-key-events": 2,
@@ -121,9 +137,14 @@
       "color-hex-case": "upper",
       "string-quotes": "single",
       "font-family-name-quotes": "always-where-recommended",
-      "selector-pseudo-class-no-unknown": [true, {
-        "ignorePseudoClasses": ["global"]
-      }],
+      "selector-pseudo-class-no-unknown": [
+        true,
+        {
+          "ignorePseudoClasses": [
+            "global"
+          ]
+        }
+      ],
       "indentation": 2
     }
   },
@@ -170,7 +191,8 @@
     "reselect": "2.5.3",
     "sanitize.css": "4.1.0",
     "warning": "^3.0.0",
-    "whatwg-fetch": "1.0.0"
+    "whatwg-fetch": "1.0.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
@@ -246,5 +268,6 @@
     "webpack": "2.1.0-beta.15",
     "webpack-dev-middleware": "1.6.1",
     "webpack-hot-middleware": "2.12.2"
-  }
+  },
+  "snyk": true
 }
